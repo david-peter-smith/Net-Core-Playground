@@ -15,11 +15,13 @@ namespace Playground.Authorities
             this._UserRepository = oUserRepository;
         }
 
-        public void UserCreate(UserModel oUserModel) {
+        public bool UserCreate(UserModel oUserModel) {
+            bool _result = false;
             if (oUserModel == null) {
                 throw new ArgumentNullException("oUserModel");
             }
-            this._UserRepository.UserCreate(oUserModel);
+            _result = this._UserRepository.UserCreate(oUserModel);
+            return _result;
         }
 
     }
