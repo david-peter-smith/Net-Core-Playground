@@ -1,5 +1,5 @@
 using NUnit.Framework;
-//using Playground;
+using Playground.Models.User;
 
 namespace Test
 {
@@ -13,7 +13,7 @@ namespace Test
         [Test]
         public void UserCreate_NullObject_ExceptionThrown()
         {
-            //UserModel _UserModel = null;
+            UserRequestModel _UserModel = null;
 
             Assert.IsTrue(true,"Test 1",null);
         }
@@ -21,7 +21,7 @@ namespace Test
         [Test]
         public void UserCreate_ValidObject_ObjectCreated()
         {
-            //UserModel _UserModel = new UserModel();
+            UserRequestModel _UserRequestModel = new UserRequestModel();
 
 
             Assert.That(true, "Second", null);
