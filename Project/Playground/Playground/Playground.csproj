@@ -2,8 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <StartupObject>Playground.Program</StartupObject>
+    
     <ApplicationIcon />
+    
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

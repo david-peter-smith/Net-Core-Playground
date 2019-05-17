@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Playground.Models
+namespace Playground.Models.User
 {
-    public class UserModel
+    public class UserRequestModel
     {
         private Guid _user_guid;
         private string _name_first = "";

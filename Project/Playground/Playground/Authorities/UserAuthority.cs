@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Playground.Repositories;
-using Playground.Models;
+using Playground.Models.User;
 
 namespace Playground.Authorities
 {
@@ -15,12 +15,12 @@ namespace Playground.Authorities
             this._UserRepository = oUserRepository;
         }
 
-        public bool UserCreate(UserModel oUserModel) {
+        public bool UserCreate(UserRequestModel oUserRequestModel) {
             bool _result = false;
-            if (oUserModel == null) {
+            if (oUserRequestModel == null) {
                 throw new ArgumentNullException("oUserModel");
             }
-            _result = this._UserRepository.UserCreate(oUserModel);
+            _result = this._UserRepository.UserCreate(oUserRequestModel);
             return _result;
         }
 
