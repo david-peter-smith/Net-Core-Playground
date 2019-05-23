@@ -1,1 +1,1 @@
-#page-container{position:relative;min-height:100vh}#content-wrap{padding-bottom:10rem}#footer{position:absolute;bottom:0;width:100%;height:10rem;padding:1rem;color:#eee;background-color:#212121}
+﻿@import url(bootstrap_nav_theme.css);#page-container{position:relative;min-height:100vh}#content-wrap{padding-bottom:15rem;min-height:10em}#footer{position:absolute;bottom:0;width:100%;height:15rem;padding:1rem;color:#eee;background-color:#212121}
