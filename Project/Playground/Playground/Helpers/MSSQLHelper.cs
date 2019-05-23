@@ -24,6 +24,9 @@ namespace Playground.Helpers
 
         public void Connect(string ConnetionString) {
             if (!this.IsConnected()) {
+                if (String.IsNullOrEmpty(ConnetionString)) {
+                    throw new ArgumentException("Parameter 'SQL' may not be null or empty.", "SQL");
+                }
                 this._SqlConnection = new SqlConnection(ConnetionString);
                 this._SqlConnection.Open();
             }
@@ -32,6 +35,9 @@ namespace Playground.Helpers
         public SqlDataReader Query(string SQL)
         {
             SqlDataReader _SqlDataReader = null;
+            if (String.IsNullOrEmpty(SQL)) {
+                throw new ArgumentException("Parameter 'SQL' may not be null or empty.", "SQL");
+            }
             SqlCommand _SqlCommand = new SqlCommand(SQL, this._SqlConnection);
             _SqlDataReader = _SqlCommand.ExecuteReader();
             return _SqlDataReader;
@@ -40,10 +46,15 @@ namespace Playground.Helpers
         public SqlDataReader Query(string SQL, Hashtable ParametersList)
         {
             SqlDataReader _SqlDataReader = null;
+            if (String.IsNullOrEmpty(SQL)) {
+                throw new ArgumentException("Parameter 'SQL' may not be null or empty.", "SQL");
+            }
+            if (ParametersList.Count <= 0) {
+                throw new ArgumentException("Parameter 'ParametersList' may not be null or empty.", "ParametersList");
+            }
             SqlCommand _SqlCommand = new SqlCommand(SQL, this._SqlConnection);
             foreach (string ParamName in ParametersList.Keys) {
-                if (!String.IsNullOrEmpty(ParamName) && !String.IsNullOrEmpty(ParamName.Trim()) )
-                {
+                if (!String.IsNullOrEmpty(ParamName) && !String.IsNullOrEmpty(ParamName.Trim())) {
                     _SqlCommand.Parameters.AddWithValue(
                         (this._parameter_prefix + ParamName + this._parameter_suffix)
                         , ParametersList[ParamName]
@@ -56,6 +67,9 @@ namespace Playground.Helpers
         public int Execute(string SQL)
         {
             int _rows_affected = 0;
+            if (String.IsNullOrEmpty(SQL)) {
+                throw new ArgumentException("Parameter 'SQL' may not be null or empty.", "SQL");
+            }
             SqlCommand _SqlCommand = new SqlCommand(SQL, this._SqlConnection);
             _rows_affected = _SqlCommand.ExecuteNonQuery();
             return _rows_affected;
@@ -64,6 +78,12 @@ namespace Playground.Helpers
         public int Execute(string SQL, Hashtable ParametersList)
         {
             int _rows_affected = 0;
+            if (String.IsNullOrEmpty(SQL)) {
+                throw new ArgumentException("Parameter 'SQL' may not be null or empty.", "SQL");
+            }
+            if (ParametersList.Count <= 0) {
+                throw new ArgumentException("Parameter 'ParametersList' may not be null or empty.", "ParametersList");
+            }            
             SqlCommand _SqlCommand = new SqlCommand(SQL, this._SqlConnection);
             foreach (string ParamName in ParametersList.Keys)
             {

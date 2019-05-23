@@ -18,7 +18,7 @@ namespace Playground.Authorities
         public bool UserCreate(UserRequestModel oUserRequestModel) {
             bool _result = false;
             if (oUserRequestModel == null) {
-                throw new ArgumentNullException("oUserModel");
+                throw new ArgumentNullException("oUserRequestModel", "UserRequestModel must be populated.");
             }
             _result = this._UserRepository.UserCreate(oUserRequestModel);
             return _result;
